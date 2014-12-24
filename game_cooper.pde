@@ -2,7 +2,8 @@ Body myBody;
 ArrayList<Obstacle> obstacles;
 
 void setup() {
-	size(600, 800);
+	size(600, 800, P2D);
+	smooth(4);
 	myBody = new Body(new PVector(30, 30));
 	obstacles = new ArrayList<Obstacle>();
 	int minOSize = 10;

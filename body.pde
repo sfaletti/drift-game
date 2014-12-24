@@ -3,21 +3,20 @@ class Body {
 	float bodySize;
 	float vMax;
 	boolean isColliding;
+	PImage bodyImage;
 	Body (PVector _position) {
 		position = _position;
 		velocity = new PVector(0,0);
 		acceleration = new PVector(0,0);
-		bodySize = 15;
+		bodySize = 30;
 		vMax = 5;
 		isColliding = false;
+		bodyImage = loadImage("ship.png");
 	}
 
 	void display () {
-		ellipseMode(CENTER);
-		fill(0);
-		if (isColliding) fill(255, 0, 0);
-		noStroke();
-		ellipse(position.x, position.y, bodySize, bodySize);
+		imageMode(CENTER);
+		image(bodyImage, position.x, position.y, bodySize, bodySize);
 	}
 
 	void addThrust(int _direction) {
