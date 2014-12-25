@@ -3,15 +3,16 @@ ArrayList<Obstacle> obstacles;
 
 void setup() {
 	size(600, 800, P2D);
-	smooth(4);
-	myBody = new Body(new PVector(30, 30));
+	myBody = new Body(new PVector(width/2, height/2));
 	obstacles = new ArrayList<Obstacle>();
 	int minOSize = 10;
 	int maxOSize = 50;
 	for (int i = 0; i < 35; ++i) {
 		PVector rPos = new PVector(random(0, width), random(0, height));
 		PVector rSize = new PVector(random(minOSize, maxOSize), random(minOSize, maxOSize));
-		obstacles.add(new Obstacle(rPos, rSize));
+		if (! myBody.isColliding(rPos, PVector.add(rPos, rSize))) { 
+			obstacles.add(new Obstacle(rPos, rSize));
+		}
 	}
 }
 
@@ -25,7 +26,7 @@ void draw() {
 }
 
 void keyPressed() {
-	println (keyCode);
+	// println (keyCode);
 	int[] keyMap = {38, 40, 37, 39}; //up, down, left, right
 	myBody.addThrust(mapDirection(keyCode, keyMap));
 }
