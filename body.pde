@@ -93,6 +93,15 @@ class Body {
 		}
 	}
 
+	void checkCollisions(ArrayList<Obstacle> _obstacles) {
+		for (Obstacle o : _obstacles) {
+			if (isColliding(o.tlCorner, o.brCorner)) {
+				isColliding = true;
+				return;
+			}
+		}
+	}
+
 	boolean isColliding(PVector tlCorner, PVector brCorner) {
 		isColliding = false;
 		if ((position.x + (bodySize/2) > tlCorner.x && position.x - (bodySize/2) < brCorner.x) && position.y + (bodySize/2) > tlCorner.y && position.y - (bodySize/2) < brCorner.y ) {
