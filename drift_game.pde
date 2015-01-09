@@ -3,12 +3,12 @@ ArrayList<Obstacle> obstacles;
 
 void setup() {
 	size(600, 800, P2D);
-	myBody = new Body(new PVector(width/2, height/2));
+	myBody = new Body(new PVector(width/2, 150));
 	obstacles = new ArrayList<Obstacle>();
 	int minOSize = 10;
 	int maxOSize = 50;
 	for (int i = 0; i < 35; ++i) {
-		PVector rPos = new PVector(random(0, width), random(0, height));
+		PVector rPos = new PVector(random(0, width), random(250, height));
 		PVector rSize = new PVector(random(minOSize, maxOSize), random(minOSize, maxOSize));
 		if (! myBody.isColliding(rPos, PVector.add(rPos, rSize))) { 
 			obstacles.add(new Obstacle(rPos, rSize));
