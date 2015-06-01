@@ -66,3 +66,4 @@ sftp-config.json
 
 # temp directory created by Processing for Sublime Text
 build-tmp
+sketch.properties
